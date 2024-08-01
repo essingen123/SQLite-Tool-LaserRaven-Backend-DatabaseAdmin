@@ -1,90 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SQLite Tool</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  </head>
-  <body>
-    <h1>SQLite Tool</h1>
-    <h2>Tables:</h2>
-    <ul id="tables"></ul>
-    <div id="table-content"></div>
-    <form id="query-form">
-      <textarea id="query" name="query" cols="40" rows="10" placeholder="Enter your query..."></textarea>
-      <br>
-      <button type="submit" class="btn btn-primary btn-lg">Execute Query</button>
-    </form>
-    <div class="btn-group">
-<button class="btn btn-success btn-lg" onclick="executeQuery(event, 'SELECT * FROM data')">Select All</button>
-<button class="btn btn-info btn-lg" onclick="executeQuery(event, 'CREATE TABLE IF NOT EXISTS data2 (id INTEGER PRIMARY KEY, name TEXT, value INTEGER)')">Create Table</button>
+<html><head><title>essingen123/sql_sqlite_simple_local_server_a1</title></head><body><h1>sql_sqlite_simple_local_server_a1</h1>
+<!-- ![Image](github_repo_image.webp) -->
 
-<button class="btn btn-danger btn-lg" onclick="executeQuery(event, 'DROP TABLE data')">Drop Table</button>
-
-<button onclick="executeQuery(event, 'data')">Insert Row</button>
-<button onclick="executeQuery(event, 'PRAGMA table_info(data)')">Table Info</button>
-<button onclick="executeQuery(event, 'SELECT * FROM data ORDER BY name ASC')">Sort by Name</button>
-<button onclick="executeQuery(event, 'SELECT * FROM data ORDER BY value DESC')">Sort by Value</button>
-    </div>
-
-    <script>
-function executeQuery(event, tableName) {
-  event.preventDefault();
-  if (tableName === 'data') {
-    var columnNames = ['name', 'value']; // adjust this to match your column names
-    var query = `INSERT INTO ${tableName} (${columnNames.join(', ')}) VALUES (${columnNames.map(() => '0').join(', ')})`;
-  } else {
-    var query = tableName;
-  }
-  document.querySelector('#query').value = query;
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/query', true);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      document.querySelector('#table-content').innerHTML = xhr.responseText;
-    }
-  };
-  xhr.send('query=' + encodeURIComponent(query));
-}
-
-      document.querySelector('#query-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var query = document.querySelector('#query').value;
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/query', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-          if (xhr.status === 200) {
-            document.querySelector('#table-content').innerHTML = xhr.responseText;
-          }
-        };
-        xhr.send('query=' + encodeURIComponent(query));
-      });
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', '/tables', true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          var tables = JSON.parse(xhr.responseText);
-          var tableList = document.getElementById('tables');
-          tables.forEach(function(table) {
-            var tableLink = document.createElement('a');
-            tableLink.href = '#';
-            tableLink.onclick = function() {
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', '/table/' + table, true);
-              xhr.onload = function() {
-                if (xhr.status === 200) {
-                  document.querySelector('#table-content').innerHTML = xhr.responseText;
-                }
-              };
-              xhr.send();
-            };
-            tableLink.textContent = table;
-            tableList.appendChild(tableLink);
-          });
-        }
-      };
-      xhr.send();
-    </script>
-  </body>
-</html>
+<h2>Description 🤔</h2>
+<p>A work in progress with automation testing for Git leveraging python, bash etc</p>
+<p>Tags: Git, Bash, Automation, Automagic, un-PEP8-perhaps</p>
+<h2>Features 🎉</h2>
+<ul>
+<li>Automagic ...</li>
+</ul>
+<h2>License 📜</h2>
+<p>This project is licensed under a license not written here yet.. </p></body></html>
