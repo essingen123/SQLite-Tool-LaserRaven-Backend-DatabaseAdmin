@@ -1,24 +1,18 @@
 import os
 import webbrowser
 from http.server import HTTPServer, BaseHTTPRequestHandler
-
-from utils.port_utils import find_available_port
-
 import sqlite3
 import socket
 import json
 import urllib.parse
 
-# Create a SQLite database and table
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS data
 (id INTEGER PRIMARY KEY, name TEXT, value INTEGER)''')
 conn.commit()
-
 print("Database created successfully!")
 
-# Define a function to handle SQL queries
 def handle_query(query):
     try:
         c.execute(query)
@@ -29,58 +23,49 @@ def handle_query(query):
         print(f"Error executing query: {e}")
         return {'status': 'error', 'message': str(e)}
 
-# Define a function to check if a port is available
 def is_port_available(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     result = sock.connect_ex(('localhost', port))
-    if result == 0:
-        return False
-    else:
-        return True
+    return result != 0
 
-# Find an available port
+def find_available_port():
+    for port in range(1024, 65536):
+        if is_port_available(port):
+            return port
+    return None
+
 port = find_available_port()
-
 print(f"Server running on port {port}")
 
-# Create a directory for saved queries if it doesn't exist
 if not os.path.exists('queries'):
     os.makedirs('queries')
-
 print("Queries directory created successfully!")
 
-# Load saved queries
 saved_queries = {}
 for filename in os.listdir('queries'):
     if filename.endswith('.txt'):
         query_name = os.path.splitext(filename)[0]
         with open(os.path.join('queries', filename), 'r') as f:
             saved_queries[query_name] = f.read()
-
 print("Saved queries loaded successfully!")
 
-# Define a function to save a query for later use
 def save_query(query, filename):
     with open(os.path.join('queries', f'{filename}.txt'), 'w') as f:
         f.write(query)
 
-# Define a function to list all tables in the database
 def list_tables():
     c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-    tables = c.fetchall()
-    return [table[0] for table in tables]
+    return [table[0] for table in c.fetchall()]
 
 print("Tables listed successfully!")
 
-# Define a function to list all data in a table
 def list_data(table):
     c.execute(f"SELECT * FROM {table};")
     rows = c.fetchall()
     headers = [desc[0] for desc in c.description]
     return {'status': 'ok', 'headers': headers, 'rows': rows}
 
-# Define a simple HTTP server to respond to queries
-class QueryHandler(http.server.BaseHTTPRequestHandler):
+class QueryHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)
@@ -99,7 +84,7 @@ class QueryHandler(http.server.BaseHTTPRequestHandler):
                 <button onclick="document.querySelector('textarea').value='SELECT * FROM data';">Select All</button>
                 <button onclick="document.querySelector('textarea').value='CREATE TABLE IF NOT EXISTS data2 (id INTEGER PRIMARY KEY, name TEXT, value INTEGER)';">Create Table</button>
                 <button onclick="document.querySelector('textarea').value='INSERT INTO data (name, value) VALUES (\'test\', 1)';">Insert Row</button>
-                <button onclick="document.querySelector('textarea').value='DROP TABLE data';">Drop Table</button>
+                <button onclick="document.querySelector('textarea').value=\'DROP TABLE data\';">Drop Table</button>
                 <h2>Saved Queries:</h2>
                 <ul>
             '''
@@ -182,7 +167,7 @@ class QueryHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(html.encode())
 
 def main():
-    httpd = http.server.HTTPServer(('localhost', port), QueryHandler)
+    httpd = HTTPServer(('localhost', port), QueryHandler)
     print(f"Server running on http://localhost:{port}/")
     webbrowser.open(f"http://localhost:{port}/")
     httpd.serve_forever()

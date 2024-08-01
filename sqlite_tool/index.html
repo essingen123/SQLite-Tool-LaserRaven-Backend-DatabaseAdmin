@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>SQLite Tool</h1>
+    <form id="query-form">
+      <textarea id="query" name="query" cols="40" rows="10"></textarea>
+      <br>
+      <input type="submit" value="Execute Query">
+    </form>
+    <br>
+    <button onclick="document.querySelector('#query').value='SELECT * FROM data';">Select All</button>
+    <button onclick="document.querySelector('#query').value='CREATE TABLE IF NOT EXISTS data2 (id INTEGER PRIMARY KEY, name TEXT, value INTEGER)';">Create Table</button>
+    <button onclick="document.querySelector('#query').value='INSERT INTO data (name, value) VALUES ('test', 1)';">Insert Row</button>
+    <button onclick="document.querySelector('#query').value='DROP TABLE data';">Drop Table</button>
+    <h2>Saved Queries:</h2>
+    <ul>
+    {% for query_name in saved_queries %}
+      <li><button onclick="document.querySelector('#query').value='{{ saved_queries[query_name] }}';">{{ query_name }}</button></li>
+    {% endfor %}
+    </ul>
+    <div id="result"></div>
+    <script>
+      document.querySelector('#query-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var query = document.querySelector('#query').value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/query', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            document.querySelector('#result').innerHTML = xhr.responseText;
+          }
+        };
+        xhr.send('query=' + encodeURIComponent(query));
+      });
+    </script>
+  </body>
+</html>

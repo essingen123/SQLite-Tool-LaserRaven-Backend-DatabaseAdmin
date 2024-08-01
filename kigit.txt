@@ -11,7 +11,7 @@ set303i=y
 set303b=sql_sqlite_simple_local_server_a1
 
 # 🔒 public git, y for yes n for no, standard no
-set303c=y
+set303c=n
 
 # 📄 auto generate HTML page, y for yes and n for no
 set303d=y
