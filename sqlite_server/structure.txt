@@ -1,0 +1,17 @@
+
+sqlite_server/
+sqlite_server.py
+models/
+__init__.py
+database.py
+queries/
+__init__.py
+query_handler.py
+routes/
+__init__.py
+main_route.py
+table_route.py
+utils/
+__init__.py
+port_utils.py
+structure.txt
