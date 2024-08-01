@@ -23,7 +23,7 @@ set303e=Git, Bash, Automation, Automagic, un-PEP8-perhaps
 set303f=A work in progress with automation testing for Git leveraging python, bash etc
 
 # 🌐 website URL
-set303g=
+set303g=https://essingen123.github.io/sql_sqlite_simple_local_server_a1
 
 # 🎉 GithubPartywebpageLink
 set303h=index.html
