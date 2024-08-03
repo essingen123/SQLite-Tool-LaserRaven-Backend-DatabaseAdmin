@@ -1,6 +1,5 @@
-
-# 🚀 SQLite-Tool-mini (BataBase | DataBase)
-<img src="batabase_designer_coder.jpeg">
+# 🚀 SQLite-MiniServerAdmin (Tewer BataBase | DataBase)
+<center><img src="batabase_designer_coder.jpeg" height="50%"></center>
 
 Welcome to **SQLite-Tool-mini**! This is a comprehensive guide to help you get started with our amazing project. Whether you're a developer, contributor, or just curious, you'll find everything you need right here.
 
@@ -36,5 +35,4 @@ Welcome to **SQLite-Tool-mini**! This is a comprehensive guide to help you get s
 2. Execute queries using the query form or click on the pre-defined buttons
 3. View table data by clicking on the table names in the left-hand menu
 
-## 📜 License
 
