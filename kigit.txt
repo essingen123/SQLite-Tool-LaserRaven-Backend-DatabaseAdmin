@@ -8,7 +8,8 @@ set303a=y
 set303i=y
 
 # 📝 git-reponame (empty for current folder name, 'random' for a random name)
-set303b=SQLite-Tool-LaserRaven-Backend-DatabaseAdmin
+set303b=SQLite-Tool-mini
+#LaserRaven-Backend-DatabaseAdmin
 #sql_sqlite_simple_local_server_a1
 
 # 🔒 public git, y for yes n for no, standard no
@@ -24,7 +25,7 @@ set303e=SQLite
 set303f=SQLite
 
 # 🌐 website URL
-set303g=https://essingen123.github.io/sql_sqlite_simple_local_server_a1/
+set303g=
 
 # 🎉 GithubPartywebpageLink
 set303h=index.html

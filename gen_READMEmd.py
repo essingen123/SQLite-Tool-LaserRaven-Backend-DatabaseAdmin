@@ -1,6 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-# 🚀 SQLite-Tool-mini (BataBase | DataBase)
-<img src="batabase_designer_coder.jpeg">
+with open('README.md', 'w') as f:
+    f.write("""
+# 🚀 SQLite-Tool-mini
+
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![GitHub stars](https://img.shields.io/github/stars/essingen123/SQLite-Tool-mini.svg)
 ![GitHub forks](https://img.shields.io/github/forks/essingen123/SQLite-Tool-mini.svg)
@@ -66,3 +70,4 @@ Project Link: [https://github.com/essingen123/SQLite-Tool-mini](https://github.c
 ---
 
 Thank you for checking out **SQLite-Tool-mini**! We hope you find it useful and enjoyable. Happy coding! 💻✨
+""")
