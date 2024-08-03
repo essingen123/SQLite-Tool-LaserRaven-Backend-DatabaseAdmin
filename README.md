@@ -1,11 +1,6 @@
 
 # 🚀 SQLite-Tool-mini (BataBase | DataBase)
 <img src="batabase_designer_coder.jpeg">
-![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
-![GitHub stars](https://img.shields.io/github/stars/essingen123/SQLite-Tool-mini.svg)
-![GitHub forks](https://img.shields.io/github/forks/essingen123/SQLite-Tool-mini.svg)
-![GitHub issues](https://img.shields.io/github/issues/essingen123/SQLite-Tool-mini.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/essingen123/SQLite-Tool-mini.svg)
 
 Welcome to **SQLite-Tool-mini**! This is a comprehensive guide to help you get started with our amazing project. Whether you're a developer, contributor, or just curious, you'll find everything you need right here.
 
@@ -43,26 +38,3 @@ Welcome to **SQLite-Tool-mini**! This is a comprehensive guide to help you get s
 
 ## 📜 License
 
-Distributed under the MIT License. See LICENSE for more information.
-
-## 📞 Contact
-
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - your.email@example.com
-
-Project Link: [https://github.com/essingen123/SQLite-Tool-mini](https://github.com/essingen123/SQLite-Tool-mini)
-
-## 📚 Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 🔗 Links
-
-- [Documentation](https://essingen123.github.io/SQLite-Tool-mini/)
-- [Issues](https://github.com/essingen123/SQLite-Tool-mini/issues)
-- [Wiki](https://github.com/essingen123/SQLite-Tool-mini/wiki)
-
----
-
-Thank you for checking out **SQLite-Tool-mini**! We hope you find it useful and enjoyable. Happy coding! 💻✨
