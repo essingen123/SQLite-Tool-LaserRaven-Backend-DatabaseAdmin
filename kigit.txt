@@ -11,13 +11,13 @@ set303i=y
 set303b=sql_sqlite_simple_local_server_a1
 
 # 🔒 public git, y for yes n for no, standard no
-set303c=y
+set303c=public
 
 # 📄 auto generate HTML page, y for yes and n for no
 set303d=y
 
 # 🗑️ tags, separated by commas
-set303e=
+set303e=SQLite
 
 # 📝 description
 set303f=SQLite
